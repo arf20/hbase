@@ -13,6 +13,15 @@ Patches are applied to cleanly compile under [musl-libc](http://musl-libc.org).
 
 ------
 
+arf20 fork
+
+patches are pre-applied, patched to allow dynamic builds and top
+level makefile
+
+patch files kept for historical reasons
+
+------
+
 ### What is included?
 
 from **heirloom:**

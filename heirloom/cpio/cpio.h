@@ -31,7 +31,7 @@
 #include <sys/stat.h>
 #include <inttypes.h>
 
-enum	{
+extern enum e_fmttype {
 	FMT_NONE	= 00000000,	/* no format chosen yet */
 
 	TYP_PAX		= 00000010,	/* uses pax-like extended headers */
@@ -173,7 +173,7 @@ extern int		printsev;
 extern char		*progname;
 extern struct glist	*patterns;
 
-enum {			/* type of pax command this is */
+extern enum e_pax {			/* type of pax command this is */
 	PAX_TYPE_CPIO		= 0,	/* not a pax command */
 	PAX_TYPE_PAX1992	= 1,	/* POSIX.2 pax command */
 	PAX_TYPE_PAX2001	= 2	/* POSIX.1-2001 pax command */
@@ -185,7 +185,7 @@ extern int		pax_sflag;
 extern int		pax_uflag;
 extern int		pax_Xflag;
 
-enum {
+extern enum e_pax_preserve {
 	PAX_P_NONE	= 0000,
 	PAX_P_ATIME	= 0001,
 	PAX_P_MTIME	= 0004,

@@ -30,6 +30,7 @@
  */
 
 #include <sys/types.h>
+#include <sys/sysmacros.h>
 #include <sys/stat.h>
 #ifdef	__linux__
 #if !defined (__UCLIBC__) && !defined (__dietlibc__)
@@ -92,10 +93,6 @@
 #include <iblok.h>
 #include <sfile.h>
 #include <atoll.h>
-
-#ifdef	_AIX
-#include <sys/sysmacros.h>
-#endif	/* _AIX */
 
 #if !defined (major) && !defined (__G__)
 #include <sys/mkdev.h>
@@ -753,6 +750,8 @@ static struct stat	globst;
  */
 #define			SANELIMIT	0177777
 
+enum e_fmttype fmttype;
+
 char			*progname;	/* argv[0] to main() */
 static struct dslot	*devices;	/* devices table */
 static struct dslot	*markeddevs;	/* unusable device numbers */
@@ -837,6 +836,10 @@ int			pax_nflag;	/* select first archive member only */
 int			pax_sflag;	/* substitute file names */
 int			pax_uflag;	/* add only recent files to archive */
 int			pax_Xflag;	/* do not cross device boundaries */
+
+enum e_pax pax;
+enum e_pax_preserve pax_preserve;
+
 static enum {
 	PO_NONE		= 0,
 	PO_LINKDATA	= 01,		/* include link data in type 2 */

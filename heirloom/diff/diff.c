@@ -88,6 +88,55 @@ const char	pr[] = "pr";
 const char	*progname;
 const char	*argv0;
 
+
+int	opt;
+
+int	aflag;			/* diff binary files */
+int	tflag;			/* expand tabs on output */
+int	pflag;			/* show surrounding C function */
+
+int	hflag;			/* -h, use halfhearted DIFFH */
+int	bflag;			/* ignore blanks in comparisons */
+int	wflag;			/* totally ignore blanks in comparisons */
+int	iflag;			/* ignore case in comparisons */
+int	Bflag;			/* ignore changes that consist of blank lines */
+
+int	lflag;			/* long output format with header */
+int	rflag;			/* recursively trace directories */
+int	sflag;			/* announce files which are same */
+int	Nflag;			/* write text of nonexistant files */
+const char	*start;		/* do file only if name >= this */
+
+struct xclusion	*xflag;			/* patterns to exclude from comparison */
+
+int	wantelses;		/* -E */
+char	*ifdef1;		/* String for -1 */
+char	*ifdef2;		/* String for -2 */
+char	*endifname;		/* What we will print on next #endif */
+int	inifdef;
+
+int	context;		/* lines of context to be printed */
+
+int	status;
+int	anychange;
+char	*tempfile1;		/* used when comparing against std input */
+char	*tempfile2;		/* used when comparing against std input */
+
+char	**diffargv;		/* option list to pass to recursive diffs */
+int	recdepth;		/* recursion depth */
+jmp_buf	recenv;			/* jump stack on error */
+
+struct stackblk *curstack;
+
+char	*file1, *file2, *efile1, *efile2;
+struct	stat stb1, stb2;
+
+const char diffh[], diff[], pr[];
+const char *argv0;
+const char *progname;
+int	mb_cur_max;
+int	sysv3;
+
 static void	usage(void);
 static void	xadd(const char *);
 static void	Xadd(const char *);

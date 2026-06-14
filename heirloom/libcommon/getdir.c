@@ -59,7 +59,13 @@ extern int	getdents(int, struct dirent *, size_t);
 #ifdef	__hpux
 #define		_KERNEL
 #endif	/* __hpux */
-#include	<sys/dirent.h>
+
+// musl-libc fails to detected by the ifdef above
+// note: this will break for c-libs on esoteric unix-likes,
+// however we are focusing specifically on linux
+#include	<dirent.h>
+//#include	<sys/dirent.h>
+
 #ifdef		__hpux
 #ifndef	_INO64_T
 typedef	unsigned long long	uint64_t;
