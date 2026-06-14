@@ -149,7 +149,7 @@ LCURS = -lcurses
 # zlib or don't want to use it; you need it only if you want to use inflate
 # compression when creating zip files with cpio.
 #
-LIBZ = -Wl,-Bstatic -lz -Wl,-Bdynamic
+LIBZ = -lz
 USE_ZLIB = 1
 
 #
